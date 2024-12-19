@@ -9,6 +9,7 @@ export interface User {
   projectLocation: string;
   supervisor: string;
   funnelGenId: string;
+  pendingSO: boolean;
   so: string;
   soIdc: string;
   renewalStatus: "Waiting Approval" | "Approved" | "Rejected";

@@ -24,10 +24,18 @@ export class CardComponent  implements OnInit {
     so: "117293",
     soIdc: "70724",
     renewalStatus: "Waiting Approval",
+    pendingSO: true
   };
 
   constructor() { }
 
   ngOnInit() {}
 
+  getRenewalStatusClass() {
+    return {
+      'waiting-approval': this.data.renewalStatus === 'Waiting Approval',
+      'approved': this.data.renewalStatus === 'Approved',
+      'rejected': this.data.renewalStatus === 'Rejected'
+    }
+  }
 }

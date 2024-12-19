@@ -1,0 +1,39 @@
+.filter-item {
+    margin-bottom: 20px;
+  }
+
+  .filter-item ion-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  ion-select {
+    width: 100%;
+    background: #f8f8f8;
+    border-radius: 4px;
+    --padding-start: 10px;
+  }
+
+  .chips-container {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  ion-chip {
+    --background: #f0f0f0;
+    margin: 0;
+  }
+
+  .button-container {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  ion-button {
+    margin: 0;
+  }

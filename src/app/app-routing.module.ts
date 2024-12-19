@@ -15,9 +15,27 @@ const routes: Routes = [
       {
         path: 'home',
         loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+      },
+      {
+        path: 'list',
+        loadChildren: () => import('./pages/list/list.module').then( m => m.ListPageModule)
+      },
+      {
+        path: 'search',
+        loadChildren: () => import('./pages/search/search.module').then( m => m.SearchPageModule)
       }
     ]
   },
+  {
+    path: 'list',
+    loadChildren: () => import('./pages/list/list.module').then( m => m.ListPageModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./pages/search/search.module').then( m => m.SearchPageModule)
+  },
+
+
 
 ];
 @NgModule({

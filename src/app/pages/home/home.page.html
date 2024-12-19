@@ -1,15 +1,35 @@
-<ion-toolbar>
-  <ion-buttons slot="start">
-    <ion-back-button default-href="#"></ion-back-button>
-  </ion-buttons>
-  <ion-title>Home</ion-title>
-</ion-toolbar>
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="danger">
+    <ion-searchbar
+    #searchbar
+      placeholder="search"
+      (ionInput)="onSearch($event)"
+    ></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="openFilterModal()">
+        <ion-icon name="funnel-outline"></ion-icon>
+        Filter
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content [fullscreen]="true">
-  <app-searchbar></app-searchbar>
-  <div>
-    <app-card *ngFor="let card of data" 
-              [data]="card">
-    </app-card>
+  <span class="filter-count" *ngIf="filteredData && filteredData.length > 0">
+    {{filteredData.length}} records found
+  </span>
+  <div *ngIf="filteredData && filteredData.length > 0; else noDataTemplate">
+    <app-card *ngFor="let card of filteredData" [data]="card"> </app-card>
   </div>
+  <ng-template #noDataTemplate>
+    <div class="no-data">
+      <p>No data available</p>
+    </div>
+  </ng-template>
 </ion-content>

@@ -1,0 +1,31 @@
+ion-card {
+  margin: 10px;
+  box-shadow: none;
+  border: 1px solid #ddd;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+
+p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.status-badge {
+  display: block;
+  margin: 8px 0;
+  padding: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.renewal-status {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

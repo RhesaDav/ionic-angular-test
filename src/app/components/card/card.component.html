@@ -9,12 +9,15 @@
         </ion-col>
         <ion-col size="9">
           <h2>{{ data.id }} - {{ data.name }}</h2>
+          <ion-badge color="primary" *ngIf="data.pendingSO">
+            Pending SO
+          </ion-badge>
           <p>
             New Contract:
             {{ data.contractPeriod.start | date : "dd/MM/yyyy" }} -
             {{ data.contractPeriod.end | date : "dd/MM/yyyy" }}
           </p>
-          <p>Adjusment: {{ data.adjustment }}</p>
+          <p>Adjusment: {{ data.adjustment }} %</p>
           <p>Project Location: {{ data.projectLocation }}</p>
           <p>Supervisor: {{ data.supervisor }}</p>
           <p>
@@ -22,7 +25,6 @@
             {{ data.soIdc }}
           </p>
           <div class="renewal-status">
-            <span>Renewal Status</span>
             <ion-badge color="light">{{ data.renewalStatus }}</ion-badge>
           </div>
         </ion-col>

@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Advance Filter</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="filter-item">
+    <ion-label>Pending SO</ion-label>
+    <ion-toggle [(ngModel)]="filters.pendingSO" color="success"></ion-toggle>
+  </div>
+
+  <div class="filter-item">
+    <ion-label>Contract Status</ion-label>
+    <ion-select [(ngModel)]="filters.contractStatus" multiple="true" placeholder="- Select Contract Status -">
+      <ion-select-option *ngFor="let status of contractStatusList" [value]="status">{{getContractStatusLabel(status)}}</ion-select-option>
+    </ion-select>
+    
+    <div class="chips-container" *ngIf="filters.contractStatus?.length">
+      <ion-chip *ngFor="let status of filters.contractStatus">
+        <ion-label>{{getContractStatusLabel(status)}}</ion-label>
+        <ion-icon name="close" (click)="removeContractStatus(status)"></ion-icon>
+      </ion-chip>
+    </div>
+  </div>
+
+  <div class="filter-item">
+    <ion-label>Supervisor</ion-label>
+    <ion-select [(ngModel)]="filters.supervisor" multiple="true" placeholder="- Select Supervisor -">
+      <ion-select-option *ngFor="let sup of supervisorList" [value]="sup">{{sup}}</ion-select-option>
+    </ion-select>
+    
+    <div class="chips-container" *ngIf="filters.supervisor?.length">
+      <ion-chip *ngFor="let sup of filters.supervisor">
+        <ion-label>{{getSupervisorLabel(sup)}}</ion-label>
+        <ion-icon name="close" (click)="removeSupervisor(sup)"></ion-icon>
+      </ion-chip>
+    </div>
+  </div>
+
+  <div class="filter-item">
+    <ion-label>Project Location</ion-label>
+    <ion-select [(ngModel)]="filters.location" multiple="true" placeholder="- Select Project Location -">
+      <ion-select-option *ngFor="let loc of locationList" [value]="loc">{{loc}}</ion-select-option>
+    </ion-select>
+    
+    <div class="chips-container" *ngIf="filters.location?.length">
+      <ion-chip *ngFor="let loc of filters.location">
+        <ion-label>{{getLocationLabel(loc)}}</ion-label>
+        <ion-icon name="close" (click)="removeLocation(loc)"></ion-icon>
+      </ion-chip>
+    </div>
+  </div>
+
+  <div class="filter-item">
+    <ion-label>Adjustment</ion-label>
+    <ion-select [(ngModel)]="filters.adjustment" placeholder="- Select Adjustment -">
+      <ion-select-option value="20">0% - 20%</ion-select-option>
+      <ion-select-option value="40">21% - 40%</ion-select-option>
+      <ion-select-option value="60">41% - 60%</ion-select-option>
+      <ion-select-option value="80">61% - 80%</ion-select-option>
+      <ion-select-option value="100">81% - 100%</ion-select-option>
+    </ion-select>
+  </div>
+
+  <div class="button-container">
+    <ion-button expand="block" color="primary" (click)="applyFilters()">
+      Apply Filter
+    </ion-button>
+    <ion-button expand="block" color="medium" (click)="resetFilters()">
+      Reset Filter
+    </ion-button>
+  </div>
+</ion-content>

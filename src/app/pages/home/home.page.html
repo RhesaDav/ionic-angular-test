@@ -1,0 +1,15 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button default-href="#"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Home</ion-title>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true">
+  <app-searchbar></app-searchbar>
+  <div>
+    <app-card *ngFor="let card of data" 
+              [data]="card">
+    </app-card>
+  </div>
+</ion-content>
